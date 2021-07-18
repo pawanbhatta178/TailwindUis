@@ -1,94 +1,71 @@
-import { Menu, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
+import Select, { components } from "react-select";
+import { AiFillCaretDown } from "react-icons/ai";
 
 
 interface IDropdownProps extends IBaseProps {
-    menuRightAligned?: boolean;
+    options: any;
+    isMulti?: boolean | undefined;
+    isSearchable?: boolean | undefined;
+    isLoading?: boolean | undefined;
+    isDisabled?: boolean | undefined;
 }
 
-const Dropdown: React.FC<IDropdownProps> = ({ menuRightAligned }) => {
+
+const DropdownIndicator = (props: any) => {
     return (
-        <div className="flex">
-            <Menu as="div" className="relative">
-                <div>
-                    <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                        Options
-                    </Menu.Button>
-                </div>
-                <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                >
-                    <Menu.Items className={`${menuRightAligned ? "right-0" : "left-0"} absolute  w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
-                        <div className="px-1 py-1 ">
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <button
-                                        className={`${active ? 'bg-red-500 text-white' : 'text-gray-900'
-                                            } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                                    >
-                                        Edit
-                                    </button>
-                                )}
-                            </Menu.Item>
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <button
-                                        className={`${active ? 'bg-red-500 text-white' : 'text-gray-900'
-                                            } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                                    >
+        <components.DropdownIndicator {...props}>
+            <AiFillCaretDown />
+        </components.DropdownIndicator>
+    );
+};
 
-                                        Duplicate
-                                    </button>
-                                )}
-                            </Menu.Item>
-                        </div>
-                        <div className="px-1 py-1 ">
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <button
-                                        className={`${active ? 'bg-red-500 text-white' : 'text-gray-900'
-                                            } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                                    >
 
-                                        Archive
-                                    </button>
-                                )}
-                            </Menu.Item>
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <button
-                                        className={`${active ? 'bg-red-500 text-white' : 'text-gray-900'
-                                            } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                                    >
+const Dropdown: React.FC<IDropdownProps> = ({ options, isMulti, isDisabled, isLoading, isSearchable }) => {
 
-                                        Move
-                                    </button>
-                                )}
-                            </Menu.Item>
-                        </div>
-                        <div className="px-1 py-1">
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <button
-                                        className={`${active ? 'bg-red-500 text-white' : 'text-gray-900'
-                                            } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
-                                    >
+    const customStyles = {
+        control: (provided: any) => ({
+            ...provided,
+            '&:active': { borderColor: 'gray' },
+            '&:focus': { borderColor: 'gray' },
+            '&:select': { borderColor: 'gray' },
+            '&:hover': { borderColor: 'gray' },
+            borderColor: 'none',
+            boxShadow: "none",
+        }),
+        option: (provided: any, { data, isDisabled, isFocused, isSelected }: any) => ({
+            ...provided,
+            backgroundColor: isSelected ? "#9333EA" : (isFocused ? "#F3E8FF" : null),
+        }),
+        indicatorSeparator: (provided: any) => ({
+            ...provided,
+            display: "none"
+        })
+    }
 
-                                        Delete
-                                    </button>
-                                )}
-                            </Menu.Item>
-                        </div>
-                    </Menu.Items>
-                </Transition>
-            </Menu>
-        </div>
+
+    const [region, setRegion] = useState(options[0]);
+
+    const onchangeSelect = (item: any) => {
+        console.log(item)
+        setRegion(item);
+    };
+
+    return (
+        <Select
+            isMulti={isMulti}
+            isSearchable={isSearchable}
+            isDisabled={isDisabled}
+            isLoading={isLoading}
+            placeholder="Please select one.."
+            styles={customStyles}
+            value={region}
+            onChange={onchangeSelect}
+            options={options}
+            components={{ DropdownIndicator }}
+            getOptionValue={(option: any) => option.value}
+            getOptionLabel={(option: any) => option.value}
+        />
     )
 }
 

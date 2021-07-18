@@ -3,7 +3,13 @@ module.exports = {
   './src/**/*.{js,jsx,ts,tsx,vue}',],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        blue: {
+          950: "#232735", //nav color jobseeker
+        }
+      },
+    },
   },
   variants: {
     extend: {},
