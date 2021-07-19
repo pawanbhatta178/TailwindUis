@@ -23,9 +23,11 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Dropdown options={options} />
-    </div>
+    <>
+      <div className="App">
+        <Dropdown options={options} />
+      </div>
+    </>
   );
 
 }
