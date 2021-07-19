@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Dropdown } from './Dropdown';
+import { Listbox } from './Listbox';
 
 
 describe('Button', () => {
@@ -9,7 +9,7 @@ describe('Button', () => {
     // mock out our OnClick function
     const mockClick = jest.fn();
 
-    const { getByRole } = render(<Dropdown />);
+    const { getByRole } = render(<Listbox options />);
 
 
     // we store a variable with the button element

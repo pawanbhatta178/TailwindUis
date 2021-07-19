@@ -3,15 +3,6 @@ import Select, { components } from "react-select";
 import { AiFillCaretDown } from "react-icons/ai";
 
 
-interface IDropdownProps extends IBaseProps {
-    options: any;
-    isMulti?: boolean | undefined;
-    isSearchable?: boolean | undefined;
-    isLoading?: boolean | undefined;
-    isDisabled?: boolean | undefined;
-}
-
-
 const DropdownIndicator = (props: any) => {
     return (
         <components.DropdownIndicator {...props}>
@@ -21,7 +12,17 @@ const DropdownIndicator = (props: any) => {
 };
 
 
-const Dropdown: React.FC<IDropdownProps> = ({ options, isMulti, isDisabled, isLoading, isSearchable }) => {
+interface IListboxProps extends IBaseProps {
+    options: any;
+    isMulti?: boolean | undefined;
+    isSearchable?: boolean | undefined;
+    isLoading?: boolean | undefined;
+    isDisabled?: boolean | undefined;
+    defaultValue?: any;
+}
+
+
+const Listbox: React.FC<IListboxProps> = ({ options, isMulti, isDisabled, isLoading, isSearchable, defaultValue }) => {
 
     const customStyles = {
         control: (provided: any) => ({
@@ -43,8 +44,7 @@ const Dropdown: React.FC<IDropdownProps> = ({ options, isMulti, isDisabled, isLo
         })
     }
 
-
-    const [region, setRegion] = useState(options[0]);
+    const [region, setRegion] = useState(defaultValue);
 
     const onchangeSelect = (item: any) => {
         console.log(item)
@@ -79,4 +79,4 @@ const Dropdown: React.FC<IDropdownProps> = ({ options, isMulti, isDisabled, isLo
 
 
 
-export { Dropdown }
+export { Listbox }
