@@ -19,10 +19,11 @@ interface IListboxProps extends IBaseProps {
     isLoading?: boolean | undefined;
     isDisabled?: boolean | undefined;
     defaultValue?: any;
+    placeholder?: string;
 }
 
 
-const Listbox: React.FC<IListboxProps> = ({ options, isMulti, isDisabled, isLoading, isSearchable, defaultValue }) => {
+const Listbox: React.FC<IListboxProps> = ({ options, isMulti, isDisabled, isLoading, isSearchable, defaultValue, placeholder }) => {
 
     const customStyles = {
         control: (provided: any) => ({
@@ -33,6 +34,7 @@ const Listbox: React.FC<IListboxProps> = ({ options, isMulti, isDisabled, isLoad
             '&:hover': { borderColor: 'gray' },
             borderColor: 'none',
             boxShadow: "none",
+            backgroundColor: "#F4F4F5"
         }),
         option: (provided: any, { data, isDisabled, isFocused, isSelected }: any) => ({
             ...provided,
@@ -57,7 +59,7 @@ const Listbox: React.FC<IListboxProps> = ({ options, isMulti, isDisabled, isLoad
             isSearchable={isSearchable}
             isDisabled={isDisabled}
             isLoading={isLoading}
-            placeholder="Please select one.."
+            placeholder={placeholder}
             styles={customStyles}
             value={region}
             onChange={onchangeSelect}
@@ -68,12 +70,6 @@ const Listbox: React.FC<IListboxProps> = ({ options, isMulti, isDisabled, isLoad
         />
     )
 }
-
-
-
-
-
-
 
 
 

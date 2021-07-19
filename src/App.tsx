@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { Listbox } from "./components/Listbox";
+import { Switch } from "./components/Switch";
 
 
-
+const Label = () => {
+  return <div>label</div>
+}
 
 function App() {
+  const [switchOn, setSwitchOn] = useState(false);
+
 
   const options = [
     { value: "The Crownland" },
@@ -17,12 +22,15 @@ function App() {
     { value: "The Stormlands" }
   ];
 
-
+  const onSwitchToggle = () => {
+    setSwitchOn(!switchOn)
+  }
 
   return (
     <>
       <div className="App ">
-        <Listbox options={options} defaultValue={options[0]} />
+        <Listbox options={options} defaultValue={null} placeholder={"Select one"} isMulti />
+        <Switch onChange={onSwitchToggle} enabled={switchOn} label={Label} />
       </div>
     </>
   );
