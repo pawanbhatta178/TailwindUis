@@ -49,7 +49,6 @@ const Listbox: React.FC<IListboxProps> = ({ options, isMulti, isDisabled, isLoad
     const [region, setRegion] = useState(defaultValue);
 
     const onchangeSelect = (item: any) => {
-        console.log(item)
         setRegion(item);
     };
 

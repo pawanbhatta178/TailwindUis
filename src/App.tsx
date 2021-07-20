@@ -3,8 +3,8 @@ import { Listbox } from "./components/Listbox";
 import { Switch } from "./components/Switch";
 
 
-const Label = () => {
-  return <div>label</div>
+const Label = ({ label }: any) => {
+  return <div>{label}</div>;
 }
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
     <>
       <div className="App ">
         <Listbox options={options} defaultValue={null} placeholder={"Select one"} isMulti />
-        <Switch onChange={onSwitchToggle} enabled={switchOn} label={Label} />
+        <Switch onChange={onSwitchToggle} enabled={switchOn} label={Label({ label: "Are you available?" })} />
       </div>
     </>
   );

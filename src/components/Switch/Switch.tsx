@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Switch as NSwitch } from '@headlessui/react'
 
 interface ISwitchProps extends IBaseProps {
