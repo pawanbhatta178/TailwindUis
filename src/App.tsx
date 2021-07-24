@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
+import { Datepicker } from './components/Datepicker';
 import { Listbox } from "./components/Listbox";
 import { Switch } from "./components/Switch";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-
 
 
 const Label = ({ label }: any) => {
@@ -14,13 +12,6 @@ const Label = ({ label }: any) => {
 
 function App() {
   const [switchOn, setSwitchOn] = useState(false);
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(null);
-  const onChange = (dates:any) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  };
 
   const options = [
     { value: "The Crownland" },
@@ -42,17 +33,7 @@ function App() {
       <div className="App ">
         <Listbox options={options} defaultValue={null} placeholder={"Select one"} isMulti />
         <Switch onChange={onSwitchToggle} enabled={switchOn} label={Label({ label: "Are you available?" })} />
-        <div>
-        
-        <DatePicker   selected={startDate}
-      onChange={onChange}
-      startDate={startDate}
-      endDate={endDate}
-      selectsRange
-          />
-            <div>HGe</div>
-        </div>
-   
+        <Datepicker/>
       </div>
       </>
   );
