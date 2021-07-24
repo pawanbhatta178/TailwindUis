@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Datepicker } from './components/Datepicker';
+import { DatePicker, IntervalPicker } from './components/DatePicker';
 import { Listbox } from "./components/Listbox";
 import { Switch } from "./components/Switch";
 
@@ -12,6 +12,8 @@ const Label = ({ label }: any) => {
 
 function App() {
   const [switchOn, setSwitchOn] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
   const options = [
     { value: "The Crownland" },
@@ -33,7 +35,8 @@ function App() {
       <div className="App ">
         <Listbox options={options} defaultValue={null} placeholder={"Select one"} isMulti />
         <Switch onChange={onSwitchToggle} enabled={switchOn} label={Label({ label: "Are you available?" })} />
-        <Datepicker/>
+        <DatePicker />
+        <IntervalPicker/>
       </div>
       </>
   );

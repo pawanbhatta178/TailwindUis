@@ -1,3 +1,4 @@
-import { Datepicker } from "./Datepicker";
+import { DatePicker} from "./DatePicker";
+import { IntervalPicker} from "./IntervalPicker";
 
-export {Datepicker}
+export {DatePicker, IntervalPicker} 
