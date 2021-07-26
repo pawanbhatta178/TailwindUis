@@ -21,6 +21,7 @@ export const DatePicker = () => {
         <Datepicker
             selected={startDate}
             onChange={onChange}
+            inline
            />
     )
 }

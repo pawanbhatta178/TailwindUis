@@ -101,7 +101,6 @@
 }
 
 .react-datepicker {
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
   font-size: 0.8rem;
   background-color: #fff;
   color: #000;
@@ -534,6 +533,7 @@
 .react-datepicker__quarter--in-selecting-range:hover,
 .react-datepicker__quarter--in-range:hover {
   background-color: #7e22ce;
+  color: #fff;
 }
 
 .react-datepicker__month--disabled,

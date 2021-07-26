@@ -23,6 +23,7 @@ export const IntervalPicker = () => {
         startDate={startDate}
         endDate={endDate}
         selectsRange
+        inline
            />
     )
 }
