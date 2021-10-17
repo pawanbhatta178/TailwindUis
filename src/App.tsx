@@ -31,15 +31,13 @@ function App() {
   }
 
   return (
-<>
-      <div className="App ">
-        <Listbox options={options} defaultValue={null} placeholder={"Select one"} isMulti />
-        <Switch onChange={onSwitchToggle} enabled={switchOn} label={Label({ label: "Are you available?" })} />
-        <DatePicker />
-        <IntervalPicker/>
-      </div>
-      </>
-  
+    <div className="App ">
+      <Listbox options={options} defaultValue={null} placeholder={"Select one"} isMulti />
+      <Switch onChange={onSwitchToggle} enabled={switchOn} label={Label({ label: "Are you available?" })} />
+      <DatePicker />
+      <IntervalPicker />
+    </div>
+
   );
 
 }
