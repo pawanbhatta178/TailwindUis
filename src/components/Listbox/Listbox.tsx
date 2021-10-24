@@ -53,20 +53,21 @@ const Listbox: React.FC<IListboxProps> = ({ options, isMulti, isDisabled, isLoad
     };
 
     return (
-        <Select
-            isMulti={isMulti}
-            isSearchable={isSearchable}
-            isDisabled={isDisabled}
-            isLoading={isLoading}
-            placeholder={placeholder}
-            styles={customStyles}
-            value={region}
-            onChange={onchangeSelect}
-            options={options}
-            components={{ DropdownIndicator }}
-            getOptionValue={(option: any) => option.value}
-            getOptionLabel={(option: any) => option.value}
-        />
+        <> <Select
+        isMulti={isMulti}
+        isSearchable={isSearchable}
+        isDisabled={isDisabled}
+        isLoading={isLoading}
+        placeholder={placeholder}
+        styles={customStyles}
+        value={region}
+        onChange={onchangeSelect}
+        options={options}
+        components={{ DropdownIndicator }}
+        getOptionValue={(option: any) => option.value}
+        getOptionLabel={(option: any) => option.value}
+    /></>
+       
     )
 }
 
