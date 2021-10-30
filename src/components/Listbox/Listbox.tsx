@@ -53,7 +53,7 @@ const Listbox: React.FC<IListboxProps> = ({ options, isMulti, isDisabled, isLoad
     };
 
     return (
-        <> <Select
+        <Select
         isMulti={isMulti}
         isSearchable={isSearchable}
         isDisabled={isDisabled}
@@ -66,7 +66,7 @@ const Listbox: React.FC<IListboxProps> = ({ options, isMulti, isDisabled, isLoad
         components={{ DropdownIndicator }}
         getOptionValue={(option: any) => option.value}
         getOptionLabel={(option: any) => option.value}
-    /></>
+    />
        
     )
 }
