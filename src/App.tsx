@@ -28,6 +28,7 @@ function App() {
   };
 
   return (
+    <>
     <div className="App ">
       <Listbox
         options={options}
@@ -43,6 +44,7 @@ function App() {
       <DatePicker />
       <IntervalPicker />
     </div>
+    </>
   );
 }
 
