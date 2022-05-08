@@ -29,9 +29,11 @@ function App() {
   };
 
   return (
-    <div className="App ">
-      <Alphabets />
-    </div>
+    <>
+      <div className="App ">
+        <Alphabets />
+      </div>
+    </>
   );
 }
 
